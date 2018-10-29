@@ -17,10 +17,9 @@ public class Problem
    * postconditions a random 1 digit problem is generated*/
   public Problem() 
   { int op;
-    int swap;
     
-    left = (int) (Math.random() * 100);
-    right = (int) (Math.random() * 100);
+    left = (int) (Math.random() * 10) +1;
+    right = (int) (Math.random() * 10) +1;
     op = (int) (Math.random() *4);
     switch (op)
     {
@@ -32,22 +31,6 @@ public class Problem
               break;
       case 3: operator ='*';
               break;
-    }
-    switch (operator)
-    {
-      case '-':
-        if (left > right)
-        { swap =left;
-          left = right;
-          right = swap;
-        }
-        break;
-      case '/':
-        while (left % right !=0)
-        {
-           left = (int) (Math.random() * 100);
-        }
-        break;
     }
   }
 /**determines and returns correct answer to problem<br>
@@ -73,19 +56,4 @@ public class Problem
  {
     return (left + "  " + operator + "  " + right + " = ");
   }
-  public char getOperator()
-  {
-    return operator;
-  }
-  
-  public int getLeft()
-  {
-    return left;
-  }
-  
-  public int getRight()
-  {
-    return right;
-  }
-  
 }
